@@ -1,9 +1,63 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Lift Simulation</title>
-    </head>
-    <body>
-        hello world!
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lift Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="user-input">
+        <div class="input">
+            <h3>Customise here</h3>
+            <label for="number">Floors</label>
+            <input id="floor-input" type="number" class="input-simple" />
+        </div>
+        <div class="input">
+            <label for="number">Lifts</label>
+            <input id="lift-input" type="number" class="input-simple" />
+        </div>
+    </form>
+    <section id="container">
+        <div class="floor">
+            <div class="lift-controls">
+                <div class="lift-btn">
+                    <button>up</button>
+                    <button>down</button>
+                </div>
+                <div class="floor-label">Floor 1</div>
+            </div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+        </div>
+        <div class="floor">
+            <div class="floor-label">Floor 0</div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+            <div class="lift">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
 </html>
