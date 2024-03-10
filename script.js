@@ -2,9 +2,13 @@
 const form = document.querySelector("#user-input");
 const floorsInput = form.querySelector("#floorsInput");
 const liftsInput = form.querySelector("#liftsInput");
-const floorContainer = document.querySelector("#floor-container");
+const formContainer = document.querySelector(".form-container");
+const floorContainer = document.querySelector(".floor-container");
+const bodyContainer = document.querySelector(".body-container")
+const backButton = document.querySelector("#back-btn")
 
-form.addEventListener("submit", function (event) {
+const onSubmit = () => {
+    console.log('ONSUBMIT')
     event.preventDefault(); // Prevent default form submission
 
     // Get user input values
@@ -25,7 +29,7 @@ form.addEventListener("submit", function (event) {
     // Clear existing content in the floorContainer
     floorContainer.innerHTML = "";
 
-    // Generate lift dynamically based on user input
+    // Generate floors dynamically based on user input
     for (let i = floors; i >= 1; i--) {
         const floorDiv = document.createElement("div");
         floorDiv.classList.add("floor");
@@ -34,23 +38,40 @@ form.addEventListener("submit", function (event) {
         floorLabelDiv.classList.add("floor-label");
         floorLabelDiv.textContent = `Floor ${i}`;
         floorDiv.appendChild(floorLabelDiv);
-
-        if(i===1)
-        for (let j = 1; j <= lifts; j++) {
-            const liftDiv = document.createElement("div");
-            liftDiv.classList.add("lift");
-
-            const doorLeftDiv = document.createElement("div");
-            doorLeftDiv.classList.add("door-left");
-            liftDiv.appendChild(doorLeftDiv);
-
-            const doorRightDiv = document.createElement("div");
-            doorRightDiv.classList.add("door-right");
-            liftDiv.appendChild(doorRightDiv);
-
-            floorDiv.appendChild(liftDiv);
-        }
-
         floorContainer.appendChild(floorDiv);
+
+        if (i === 1) {
+            for (let j = 1; j <= lifts; j++) {
+                const liftDiv = document.createElement("div");
+                liftDiv.classList.add("lift");
+
+                const doorLeftDiv = document.createElement("div");
+                doorLeftDiv.classList.add("door-left");
+                liftDiv.appendChild(doorLeftDiv);
+
+                const doorRightDiv = document.createElement("div");
+                doorRightDiv.classList.add("door-right");
+                liftDiv.appendChild(doorRightDiv);
+
+                floorDiv.appendChild(liftDiv);
+            }
+        }
     }
-});
+
+    //clear form
+    formContainer.classList.add("hidden");
+    bodyContainer.classList.remove("hidden");
+}
+
+const onBack = () => {
+    //show form
+    formContainer.classList.remove("hidden");
+    //clear floor
+    bodyContainer.classList.add("hidden");
+    //clear inputs
+    floorsInput.value = "";
+    liftsInput.value = "";
+}
+
+form.addEventListener("submit", onSubmit);
+backButton.addEventListener("click", onBack);

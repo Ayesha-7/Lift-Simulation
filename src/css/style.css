@@ -11,6 +11,10 @@
     height: 100vh;
 }
 
+.hidden {
+    display: none;
+}
+
 .form-container button {
     width: 100%;
 }
@@ -28,13 +32,18 @@ section#container {
     justify-content: center;
 }
 
+.body-container {
+    margin: 1rem;
+}
+
 .floor {
-    background-color: antiquewhite;
+    background-color: var(--blue-5);
     height: 12rem;
     width: 100vw;
     margin: 1rem;
     display: flex;
     align-items: flex-end;
+    border-radius: 0.75rem;
 }
 
 .floor .lift:first-of-type {
@@ -76,6 +85,6 @@ section#container {
 
 .floor-label {
     font-size: 1.25rem;
-    color: gray;
+    color: var(--blue-2);
     margin: 1rem;
 }
